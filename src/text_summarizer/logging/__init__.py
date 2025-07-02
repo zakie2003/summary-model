@@ -18,7 +18,11 @@ logging.basicConfig(
     filename=log_file,
     level=logging.INFO,
     format=logging_str,
-    filemode='a'
+    filemode='a',
+    handlers=[
+        logging.FileHandler(log_file),
+        logging.StreamHandler(sys.stdout)
+    ]
 )
 
 logger=logging.getLogger(__name__)
